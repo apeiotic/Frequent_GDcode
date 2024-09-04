@@ -2,14 +2,15 @@
 
 var sprinting_speed = 12
 SPEED = 8.5
-func sprint():
+func sprint(): #(Run this function in physics process delta)
+	camera.fov = lerp(camera.fov, 75.0, 0.1)
 	if Input.is_action_pressed("Sprint"):
 		if walking==true: #(when moving set the walking to true)
 			SPEED = sprinting_speed
 			actual_camera.fov = lerp(camera.fov, 90.0, 0.075) #(this is for FOV change of camera so you would need a refrence to camera)
 	if Input.is_action_just_released("Sprint"):
 		SPEED= 8.5
-		camera.fov = lerp(camera.fov, 75, 0.075 )
+		
 
 
 #Double Jump
